@@ -13,7 +13,8 @@ zstyle ':vcs_info:git:*' formats 'on %b'
 #PS1='${accapo}%K{#313243} %F{#CED6F1}▲ %f%k%K{#CFD6F1}  %F{#181824}%1~%f  %k%F{#CFD6F1}${symbol}%f '
 # variant 3: simplicity wins + I love pizza
 prompt_margin_top=$'\n'
-PS1='${prompt_margin_top}▲ | %1~  🍕 '
+#PS1='${prompt_margin_top} ▲ | %1~  🍕  '
+PS1='${prompt_margin_top} ▲ | %1~  %F{210}>%f  '
 RPROMPT='%F{247}${vcs_info_msg_0_}%f'
 
 export NVM_DIR="$HOME/.nvm"
