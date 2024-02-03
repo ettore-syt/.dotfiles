@@ -15,6 +15,17 @@ return {
 	config = function()
 		require('mason').setup()
 		require('fidget').setup({})
+
+		--local capabilities = require('cmp_nvim_lsp').default_capabilities()
+		-- there's probably a cleaner way to do this
+		local capabilities = vim.tbl_deep_extend(
+			'force',
+			{},
+			vim.lsp.protocol.make_client_capabilities(),
+			require('cmp_nvim_lsp').default_capabilities()
+		)
+
+
 		require('mason-lspconfig').setup({
 			ensure_installed = {
 				'lua_ls',
@@ -23,7 +34,9 @@ return {
 			},
 			handlers = {
 				function(server_name) --default handler (is optional)
-					require('lspconfig')[server_name].setup({})
+					require('lspconfig')[server_name].setup({
+						capabilities = capabilities
+					})
 				end,
 				--maybe
 				['lua_ls'] = function ()
@@ -81,6 +94,7 @@ return {
 				-- { name = 'snippy' }, -- For snippy users.
 			}, {
 				{ name = 'buffer' },
+				{name = 'path'},
 			})
 		})
 
