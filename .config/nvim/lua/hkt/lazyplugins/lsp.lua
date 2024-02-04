@@ -8,6 +8,7 @@ return {
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-cmdline',
 		'hrsh7th/nvim-cmp',
+		'hrsh7th/cmp-nvim-lua',
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
 		'j-hui/fidget.nvim'
@@ -86,6 +87,8 @@ return {
 				-- ['<C-e>'] = cmp.mapping.abort(),
 				-- ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 			}),
+
+			-- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
 				-- { name = 'vsnip' }, -- For vsnip users.
@@ -94,7 +97,8 @@ return {
 				-- { name = 'snippy' }, -- For snippy users.
 			}, {
 				{ name = 'buffer' },
-				{name = 'path'},
+				{ name = 'path' },
+				{ name = 'nvim_lua' }
 			})
 		})
 
