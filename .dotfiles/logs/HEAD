@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000 da1a362cbefdf25f659468c548029517230614f2 Ettore Mihaili <ettore@superyachttimes.com> 1706468470 +0100	commit (initial): initial air dev-setup with lazy.nvim
+da1a362cbefdf25f659468c548029517230614f2 0000000000000000000000000000000000000000 Ettore Mihaili <ettore@superyachttimes.com> 1706468670 +0100	Branch: renamed refs/heads/main to refs/heads/main
+da1a362cbefdf25f659468c548029517230614f2 da1a362cbefdf25f659468c548029517230614f2 Ettore Mihaili <ettore@superyachttimes.com> 1706468670 +0100	Branch: renamed refs/heads/main to refs/heads/main
+da1a362cbefdf25f659468c548029517230614f2 1e7d34aa705574c8af8014fda9797f6e965173cf Ettore Mihaili <ettore@superyachttimes.com> 1706519657 +0100	commit: treesitter highlighting and LSP autoformat
+1e7d34aa705574c8af8014fda9797f6e965173cf 5738c516b8ad6066269f2b2d159e8b22cfa62bef Ettore Mihaili <ettore@superyachttimes.com> 1706894860 +0100	commit: added custom prompt and source current file shortcut
+5738c516b8ad6066269f2b2d159e8b22cfa62bef 82de921025bcc233d17ce40ba874e62c754e218a Ettore Mihaili <ettore@superyachttimes.com> 1706902814 +0100	commit: some prompt customization and moved NVM envs
+82de921025bcc233d17ce40ba874e62c754e218a 4b9693d12672323228762d8010d3d08ef5e05ba5 Ettore Mihaili <ettore@superyachttimes.com> 1706903152 +0100	commit: tidy up zshrc
+4b9693d12672323228762d8010d3d08ef5e05ba5 30daf4dc2ae08c407c143f4261d90fe151118807 Ettore Mihaili <ettore@superyachttimes.com> 1706907211 +0100	commit: simple is better
+30daf4dc2ae08c407c143f4261d90fe151118807 48fd587dc280e1e17cfe322182dfc40d8b87d2d0 Ettore Mihaili <ettore@superyachttimes.com> 1706907718 +0100	commit: remove useless DS_Store
+48fd587dc280e1e17cfe322182dfc40d8b87d2d0 c3276e21c38986803237ca24ff895689f594d438 Ettore Mihaili <ettore@superyachttimes.com> 1706919657 +0100	commit: catpuccin statusbar changes and persist undo
+c3276e21c38986803237ca24ff895689f594d438 95f08c50521b75afda4bff80c97049b7a5de1df2 Ettore Mihaili <ettore@superyachttimes.com> 1706962380 +0100	commit: added Brewfile and cmp lsp capabilities
+95f08c50521b75afda4bff80c97049b7a5de1df2 802a4ee3349b8609591c633e9fcebd4c29dad742 Ettore Mihaili <ettore@superyachttimes.com> 1707067281 +0100	commit: added lua completions
