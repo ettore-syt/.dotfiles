@@ -23,3 +23,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # alias to interact with my dotfiles
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+
+# pnpm
+export PNPM_HOME="/Users/ettore/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
