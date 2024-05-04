@@ -1,0 +1,7 @@
+[user]
+	email = ettore@superyachttimes.com
+	name = Ettore Mihaili
+[core]
+	excludesfile = /Users/ettore/.gitignore_global
+[alias]
+  	diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
