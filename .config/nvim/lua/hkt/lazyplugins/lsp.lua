@@ -31,7 +31,8 @@ return {
 			ensure_installed = {
 				'lua_ls',
 				'rust_analyzer',
-				'tsserver'
+				'tsserver',
+                --'tailwindcss'
 			},
 			handlers = {
 				function(server_name) --default handler (is optional)
@@ -39,6 +40,14 @@ return {
 						capabilities = capabilities
 					})
 				end,
+				--['rust_analyzer'] = function ()
+				--	local lspconfig = require('lspconfig')
+				--	lspconfig.rust_analyzer.setup({
+				--		on_attach = function(client, bufnr)
+				--			vim.lsp.inlay_hint.enable(bufnr, true)
+				--		end
+				--	})
+				--end,
 				--maybe
 				['lua_ls'] = function ()
 					local lspconfig = require('lspconfig')
@@ -51,7 +60,16 @@ return {
 							}
 						}
 					})
-				end
+				end,
+                ['tailwindcss'] = function ()
+                    local lspconfig = require('lspconfig')
+                    lspconfig.tailwindcss.setup({
+                        cmd = { 'tailwindcss-language-server', '--stdio' },
+                        filetypes = { 'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+                        root_dir = lspconfig.util.root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'package.json'),
+                        settings = {},
+                    })
+                end,
 			},
 		})
 
@@ -74,7 +92,7 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 				['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-				['<CR>'] = cmp.mapping.confirm({ select = true }),
+				['<C-y>'] = cmp.mapping.confirm({ select = true }),
 				['<C-space>'] = cmp.mapping.complete(),
 
 
@@ -96,9 +114,9 @@ return {
 				-- { name = 'ultisnips' }, -- For ultisnips users.
 				-- { name = 'snippy' }, -- For snippy users.
 			}, {
-				{ name = 'buffer' },
+				{ name = 'nvim_lua' },
 				{ name = 'path' },
-				{ name = 'nvim_lua' }
+				{ name = 'buffer', keyword_length = 5 },
 			})
 		})
 

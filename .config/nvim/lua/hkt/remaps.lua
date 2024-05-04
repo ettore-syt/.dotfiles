@@ -37,36 +37,45 @@ local hktGroup = augroup('HKT', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd({'BufWritePre'}, {
-	group = hktGroup,
-	pattern = '*',
-	command = [[%s/\s\+$//e]],
+-- remove trailing spaces on save
+autocmd({ 'BufWritePre' }, {
+    group = hktGroup,
+    pattern = '*',
+    command = [[%s/\s\+$//e]],
 })
 
+-- flash the yanked text on yank
 autocmd('TextYankPost', {
-	group = hktGroup,
-	pattern = '*',
-	callback = function ()
-		vim.highlight.on_yank({
-			higroup = 'IncSearch',
-			timeout = 40,
-		})
-	end,
+    group = hktGroup,
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 40,
+        })
+    end,
 })
 
 autocmd('LspAttach', {
-	group = hktGroup,
-	callback = function(ev)
-		-- completion triggered by <c-x><c-o>
-		 vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-		 -- Buffer local mappings
-		 -- see `:help vim.lsp.*` for documentation on the following
-		 local opts = { buffer = ev.buf }
-		 vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
-		 vim.keymap.set('i', '<C-h>', function () vim.lsp.buf.signature_help() end, opts)
-
-	end
+    group = hktGroup,
+    callback = function(ev)
+        -- completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+        -- Buffer local mappings
+        -- see `:help vim.lsp.*` for documentation on the following
+        local opts = { buffer = ev.buf }
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set('n', '<leader>gr', require('telescope.builtin').lsp_references, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
+    end
 })
 
 

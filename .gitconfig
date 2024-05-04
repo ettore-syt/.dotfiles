@@ -3,5 +3,9 @@
 	name = Ettore Mihaili
 [core]
 	excludesfile = /Users/ettore/.gitignore_global
+
+[includeIf "gitdir:~/personal/"]
+    path = ~/personal/.gitconfig
+
 [alias]
   	diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
