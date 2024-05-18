@@ -40,14 +40,14 @@ return {
 						capabilities = capabilities
 					})
 				end,
-				--['rust_analyzer'] = function ()
-				--	local lspconfig = require('lspconfig')
-				--	lspconfig.rust_analyzer.setup({
-				--		on_attach = function(client, bufnr)
-				--			vim.lsp.inlay_hint.enable(bufnr, true)
-				--		end
-				--	})
-				--end,
+				['rust_analyzer'] = function ()
+					local lspconfig = require('lspconfig')
+					lspconfig.rust_analyzer.setup({
+						on_attach = function(client, bufnr)
+							vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+						end
+					})
+				end,
 				--maybe
 				['lua_ls'] = function ()
 					local lspconfig = require('lspconfig')
