@@ -25,11 +25,14 @@ vim.keymap.set('n', '<leader>Y', '\"+Y')
 -- substitute globally the word I'm over
 vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
+-- sessionizer
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
 
 -- source current file
---vim.keymap.set("n", "<leader><leader>", function()
---    vim.cmd("so")
---end)
+vim.keymap.set("n", "<leader><leader>", function()
+    vim.cmd("so")
+end)
 
 -- AUGROUP + LSP REMAPS
 local augroup = vim.api.nvim_create_augroup
